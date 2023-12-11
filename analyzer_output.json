@@ -1,0 +1,527 @@
+{
+  "all_tables": [],
+  "all_functions": [],
+  "output_columns": {
+    "raw": [
+      {
+        "Expr": {
+          "columns": {
+            "raw": [],
+            "sources": [],
+            "set_op": null
+          },
+          "alias": null
+        }
+      }
+    ],
+    "sources": [],
+    "set_op": null
+  },
+  "all_columns": {
+    "raw": [
+      {
+        "Expr": {
+          "columns": {
+            "raw": [],
+            "sources": [],
+            "set_op": null
+          },
+          "alias": null
+        }
+      }
+    ],
+    "sources": [],
+    "set_op": null
+  }
+}
+{
+  "all_tables": [
+    {
+      "name": {
+        "Ident": "books"
+      },
+      "db": null
+    },
+    {
+      "name": {
+        "Ident": "people"
+      },
+      "db": null
+    }
+  ],
+  "all_functions": [
+    {
+      "Ident": "avg"
+    }
+  ],
+  "output_columns": {
+    "raw": [
+      {
+        "QualifiedColumn": {
+          "name": {
+            "name": {
+              "Ident": "1stEdition"
+            },
+            "table": {
+              "Ident": "b"
+            },
+            "db": null
+          },
+          "alias": null,
+          "source": 0
+        }
+      },
+      {
+        "Expr": {
+          "columns": {
+            "raw": [
+              {
+                "UnqualifiedColumn": {
+                  "name": {
+                    "name": {
+                      "Ident": "length"
+                    },
+                    "table": null,
+                    "db": null
+                  },
+                  "alias": null,
+                  "sources": [
+                    0,
+                    1
+                  ]
+                }
+              },
+              {
+                "QualifiedColumn": {
+                  "name": {
+                    "name": {
+                      "Ident": "name"
+                    },
+                    "table": {
+                      "Ident": "b"
+                    },
+                    "db": null
+                  },
+                  "alias": null,
+                  "source": 0
+                }
+              }
+            ],
+            "sources": [
+              {
+                "source": {
+                  "Cte": {
+                    "selected_columns": [],
+                    "all_columns": {
+                      "raw": [
+                        {
+                          "Star": {
+                            "sources": [
+                              0
+                            ]
+                          }
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "source": {
+                            "Table": {
+                              "name": {
+                                "Ident": "books"
+                              },
+                              "db": null
+                            }
+                          },
+                          "alias": null
+                        }
+                      ],
+                      "set_op": null
+                    }
+                  }
+                },
+                "alias": {
+                  "Ident": "b"
+                }
+              },
+              {
+                "source": {
+                  "Cte": {
+                    "selected_columns": [],
+                    "all_columns": {
+                      "raw": [
+                        {
+                          "Star": {
+                            "sources": [
+                              0
+                            ]
+                          }
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "source": {
+                            "Table": {
+                              "name": {
+                                "Ident": "people"
+                              },
+                              "db": null
+                            }
+                          },
+                          "alias": null
+                        }
+                      ],
+                      "set_op": null
+                    }
+                  }
+                },
+                "alias": {
+                  "Ident": "p"
+                }
+              }
+            ],
+            "set_op": null
+          },
+          "alias": {
+            "String": {
+              "charset": "Default",
+              "collation": "Default",
+              "literal": "Avg Runtime"
+            }
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "source": {
+          "Cte": {
+            "selected_columns": [],
+            "all_columns": {
+              "raw": [
+                {
+                  "Star": {
+                    "sources": [
+                      0
+                    ]
+                  }
+                }
+              ],
+              "sources": [
+                {
+                  "source": {
+                    "Table": {
+                      "name": {
+                        "Ident": "books"
+                      },
+                      "db": null
+                    }
+                  },
+                  "alias": null
+                }
+              ],
+              "set_op": null
+            }
+          }
+        },
+        "alias": {
+          "Ident": "b"
+        }
+      }
+    ],
+    "set_op": null
+  },
+  "all_columns": {
+    "raw": [
+      {
+        "Star": {
+          "sources": [
+            0
+          ]
+        }
+      },
+      {
+        "UnqualifiedColumn": {
+          "name": {
+            "name": {
+              "Ident": "id"
+            },
+            "table": null,
+            "db": null
+          },
+          "alias": null,
+          "sources": [
+            0
+          ]
+        }
+      },
+      {
+        "Star": {
+          "sources": [
+            1
+          ]
+        }
+      },
+      {
+        "UnqualifiedColumn": {
+          "name": {
+            "name": {
+              "Ident": "name"
+            },
+            "table": null,
+            "db": null
+          },
+          "alias": null,
+          "sources": [
+            1
+          ]
+        }
+      },
+      {
+        "QualifiedColumn": {
+          "name": {
+            "name": {
+              "Ident": "1stEdition"
+            },
+            "table": {
+              "Ident": "b"
+            },
+            "db": null
+          },
+          "alias": null,
+          "source": 2
+        }
+      },
+      {
+        "Expr": {
+          "columns": {
+            "raw": [
+              {
+                "UnqualifiedColumn": {
+                  "name": {
+                    "name": {
+                      "Ident": "length"
+                    },
+                    "table": null,
+                    "db": null
+                  },
+                  "alias": null,
+                  "sources": [
+                    0,
+                    1
+                  ]
+                }
+              },
+              {
+                "QualifiedColumn": {
+                  "name": {
+                    "name": {
+                      "Ident": "name"
+                    },
+                    "table": {
+                      "Ident": "b"
+                    },
+                    "db": null
+                  },
+                  "alias": null,
+                  "source": 0
+                }
+              }
+            ],
+            "sources": [
+              {
+                "source": {
+                  "Cte": {
+                    "selected_columns": [],
+                    "all_columns": {
+                      "raw": [],
+                      "sources": [],
+                      "set_op": null
+                    }
+                  }
+                },
+                "alias": {
+                  "Ident": "b"
+                }
+              },
+              {
+                "source": {
+                  "Cte": {
+                    "selected_columns": [],
+                    "all_columns": {
+                      "raw": [],
+                      "sources": [],
+                      "set_op": null
+                    }
+                  }
+                },
+                "alias": {
+                  "Ident": "p"
+                }
+              }
+            ],
+            "set_op": null
+          },
+          "alias": {
+            "String": {
+              "charset": "Default",
+              "collation": "Default",
+              "literal": "Avg Runtime"
+            }
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "source": {
+          "Table": {
+            "name": {
+              "Ident": "books"
+            },
+            "db": null
+          }
+        },
+        "alias": null
+      },
+      {
+        "source": {
+          "Table": {
+            "name": {
+              "Ident": "people"
+            },
+            "db": null
+          }
+        },
+        "alias": null
+      },
+      {
+        "source": {
+          "Cte": {
+            "selected_columns": [],
+            "all_columns": {
+              "raw": [],
+              "sources": [],
+              "set_op": null
+            }
+          }
+        },
+        "alias": {
+          "Ident": "b"
+        }
+      }
+    ],
+    "set_op": null
+  }
+}
+{
+  "all_tables": [],
+  "all_functions": [
+    {
+      "Ident": "current_date"
+    }
+  ],
+  "output_columns": {
+    "raw": [
+      {
+        "Expr": {
+          "columns": {
+            "raw": [],
+            "sources": [],
+            "set_op": null
+          },
+          "alias": null
+        }
+      }
+    ],
+    "sources": [],
+    "set_op": {
+      "op": "Union",
+      "columns": {
+        "raw": [
+          {
+            "Expr": {
+              "columns": {
+                "raw": [],
+                "sources": [],
+                "set_op": null
+              },
+              "alias": null
+            }
+          }
+        ],
+        "sources": [],
+        "set_op": {
+          "op": "Intersect",
+          "columns": {
+            "raw": [
+              {
+                "Expr": {
+                  "columns": {
+                    "raw": [],
+                    "sources": [],
+                    "set_op": null
+                  },
+                  "alias": null
+                }
+              }
+            ],
+            "sources": [],
+            "set_op": null
+          }
+        }
+      }
+    }
+  },
+  "all_columns": {
+    "raw": [
+      {
+        "Expr": {
+          "columns": {
+            "raw": [],
+            "sources": [],
+            "set_op": null
+          },
+          "alias": null
+        }
+      }
+    ],
+    "sources": [],
+    "set_op": {
+      "op": "Union",
+      "columns": {
+        "raw": [
+          {
+            "Expr": {
+              "columns": {
+                "raw": [],
+                "sources": [],
+                "set_op": null
+              },
+              "alias": null
+            }
+          }
+        ],
+        "sources": [],
+        "set_op": {
+          "op": "Intersect",
+          "columns": {
+            "raw": [
+              {
+                "Expr": {
+                  "columns": {
+                    "raw": [],
+                    "sources": [],
+                    "set_op": null
+                  },
+                  "alias": null
+                }
+              }
+            ],
+            "sources": [],
+            "set_op": null
+          }
+        }
+      }
+    }
+  }
+}

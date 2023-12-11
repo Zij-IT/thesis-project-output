@@ -1,0 +1,407 @@
+[
+    SelectStatement {
+        with: None,
+        specs: [],
+        items: [
+            Expr(
+                Binary(
+                    Binary {
+                        lhs: Literal(
+                            Number(
+                                "1",
+                            ),
+                        ),
+                        rhs: Binary(
+                            Binary {
+                                lhs: Literal(
+                                    Number(
+                                        "2",
+                                    ),
+                                ),
+                                rhs: Literal(
+                                    Number(
+                                        "3",
+                                    ),
+                                ),
+                                op: Mul,
+                            },
+                        ),
+                        op: Add,
+                    },
+                ),
+                None,
+            ),
+        ],
+        from: None,
+        where_: None,
+        having: None,
+        group_by: None,
+        order_by: None,
+        limit: None,
+        fetch: None,
+        into: None,
+        lock: None,
+        set: None,
+    },
+    SelectStatement {
+        with: Some(
+            WithClause {
+                recursive: false,
+                ctes: [
+                    Cte {
+                        name: Ident(
+                            "bks",
+                        ),
+                        columns: [],
+                        value: SelectStatement {
+                            with: None,
+                            specs: [],
+                            items: [
+                                Star,
+                            ],
+                            from: Some(
+                                FromClause {
+                                    sources: [
+                                        TableSource {
+                                            item: Table(
+                                                TsTable {
+                                                    name: TableName {
+                                                        name: Ident(
+                                                            "books",
+                                                        ),
+                                                        db: None,
+                                                    },
+                                                    partition: None,
+                                                    time: None,
+                                                    alias: None,
+                                                    hints: [],
+                                                },
+                                            ),
+                                            joins: [],
+                                        },
+                                    ],
+                                },
+                            ),
+                            where_: Some(
+                                WhereClause {
+                                    cond: Binary(
+                                        Binary {
+                                            lhs: Variable(
+                                                ColumnName {
+                                                    name: Ident(
+                                                        "id",
+                                                    ),
+                                                    table: None,
+                                                    db: None,
+                                                },
+                                            ),
+                                            rhs: Literal(
+                                                Number(
+                                                    "2",
+                                                ),
+                                            ),
+                                            op: Eq,
+                                        },
+                                    ),
+                                },
+                            ),
+                            having: None,
+                            group_by: None,
+                            order_by: None,
+                            limit: None,
+                            fetch: None,
+                            into: None,
+                            lock: None,
+                            set: None,
+                        },
+                    },
+                    Cte {
+                        name: Ident(
+                            "pps",
+                        ),
+                        columns: [],
+                        value: SelectStatement {
+                            with: None,
+                            specs: [],
+                            items: [
+                                Star,
+                            ],
+                            from: Some(
+                                FromClause {
+                                    sources: [
+                                        TableSource {
+                                            item: Table(
+                                                TsTable {
+                                                    name: TableName {
+                                                        name: Ident(
+                                                            "people",
+                                                        ),
+                                                        db: None,
+                                                    },
+                                                    partition: None,
+                                                    time: None,
+                                                    alias: None,
+                                                    hints: [],
+                                                },
+                                            ),
+                                            joins: [],
+                                        },
+                                    ],
+                                },
+                            ),
+                            where_: Some(
+                                WhereClause {
+                                    cond: Binary(
+                                        Binary {
+                                            lhs: Variable(
+                                                ColumnName {
+                                                    name: Ident(
+                                                        "name",
+                                                    ),
+                                                    table: None,
+                                                    db: None,
+                                                },
+                                            ),
+                                            rhs: Literal(
+                                                String(
+                                                    SqlString {
+                                                        charset: Default,
+                                                        collation: Default,
+                                                        literal: "John",
+                                                    },
+                                                ),
+                                            ),
+                                            op: Eq,
+                                        },
+                                    ),
+                                },
+                            ),
+                            having: None,
+                            group_by: None,
+                            order_by: None,
+                            limit: None,
+                            fetch: None,
+                            into: None,
+                            lock: None,
+                            set: None,
+                        },
+                    },
+                ],
+                cycle_list: [],
+            },
+        ),
+        specs: [],
+        items: [
+            Column(
+                ColumnName {
+                    name: Ident(
+                        "1stEdition",
+                    ),
+                    table: Some(
+                        Ident(
+                            "b",
+                        ),
+                    ),
+                    db: None,
+                },
+                None,
+            ),
+            Call(
+                Aggregate(
+                    OneArg {
+                        name: Avg,
+                        aggr: Distinct,
+                        arg: Variable(
+                            ColumnName {
+                                name: Ident(
+                                    "length",
+                                ),
+                                table: None,
+                                db: None,
+                            },
+                        ),
+                        over: Some(
+                            OverClause {
+                                partition: Some(
+                                    PartitionClause {
+                                        parts: [
+                                            Variable(
+                                                ColumnName {
+                                                    name: Ident(
+                                                        "name",
+                                                    ),
+                                                    table: Some(
+                                                        Ident(
+                                                            "b",
+                                                        ),
+                                                    ),
+                                                    db: None,
+                                                },
+                                            ),
+                                        ],
+                                    },
+                                ),
+                                order_by: None,
+                                frame: None,
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    String(
+                        SqlString {
+                            charset: Default,
+                            collation: Default,
+                            literal: "Avg Runtime",
+                        },
+                    ),
+                ),
+            ),
+        ],
+        from: Some(
+            FromClause {
+                sources: [
+                    TableSource {
+                        item: Table(
+                            TsTable {
+                                name: TableName {
+                                    name: Ident(
+                                        "bks",
+                                    ),
+                                    db: None,
+                                },
+                                partition: None,
+                                time: None,
+                                alias: Some(
+                                    Ident(
+                                        "b",
+                                    ),
+                                ),
+                                hints: [],
+                            },
+                        ),
+                        joins: [],
+                    },
+                    TableSource {
+                        item: Table(
+                            TsTable {
+                                name: TableName {
+                                    name: Ident(
+                                        "pps",
+                                    ),
+                                    db: None,
+                                },
+                                partition: None,
+                                time: None,
+                                alias: Some(
+                                    Ident(
+                                        "p",
+                                    ),
+                                ),
+                                hints: [],
+                            },
+                        ),
+                        joins: [],
+                    },
+                ],
+            },
+        ),
+        where_: None,
+        having: None,
+        group_by: None,
+        order_by: None,
+        limit: None,
+        fetch: None,
+        into: None,
+        lock: None,
+        set: None,
+    },
+    SelectStatement {
+        with: None,
+        specs: [],
+        items: [
+            Call(
+                Specific(
+                    WithoutParens {
+                        name: Ident(
+                            "current_date",
+                        ),
+                    },
+                ),
+                None,
+            ),
+        ],
+        from: None,
+        where_: None,
+        having: None,
+        group_by: None,
+        order_by: None,
+        limit: None,
+        fetch: None,
+        into: None,
+        lock: None,
+        set: Some(
+            SetClause {
+                op: Union,
+                typ_: Distinct,
+                query: SelectStatement {
+                    with: None,
+                    specs: [],
+                    items: [
+                        Expr(
+                            Literal(
+                                Number(
+                                    "2",
+                                ),
+                            ),
+                            None,
+                        ),
+                    ],
+                    from: None,
+                    where_: None,
+                    having: None,
+                    group_by: None,
+                    order_by: None,
+                    limit: None,
+                    fetch: None,
+                    into: None,
+                    lock: None,
+                    set: Some(
+                        SetClause {
+                            op: Intersect,
+                            typ_: Distinct,
+                            query: SelectStatement {
+                                with: None,
+                                specs: [],
+                                items: [
+                                    Expr(
+                                        Literal(
+                                            Number(
+                                                "3",
+                                            ),
+                                        ),
+                                        None,
+                                    ),
+                                ],
+                                from: None,
+                                where_: None,
+                                having: None,
+                                group_by: None,
+                                order_by: None,
+                                limit: None,
+                                fetch: None,
+                                into: None,
+                                lock: None,
+                                set: None,
+                            },
+                            order: None,
+                            limit: None,
+                        },
+                    ),
+                },
+                order: None,
+                limit: None,
+            },
+        ),
+    },
+]
